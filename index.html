@@ -4,83 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rizan Subedi | Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, #ffffff, #007bff);
-            color: #333;
-            animation: fadeIn 1.5s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        header {
-            background: #007bff;
-            color: #fff;
-            padding: 15px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .navbar ul li {
-            margin: 0 15px;
-        }
-
-        .navbar ul li a {
-            text-decoration: none;
-            color: #fff;
-            transition: color 0.3s;
-        }
-
-        .navbar ul li a:hover {
-            color: #ffcc00;
-        }
-
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-
-        h1, h2 {
-            color: #007bff;
-        }
-
-        .image-placeholder {
-            width: 200px;
-            height: 200px;
-            background: #007bff;
-            border-radius: 50%;
-            margin: 20px auto;
-            border: 4px solid #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
     <header>
         <div class="navbar">
             <div class="logo"><h1>Rizan Subedi</h1></div>
@@ -93,20 +25,24 @@
         </div>
     </header>
 
+    <!-- Main Content -->
     <div class="content">
         <h2>Welcome to My Portfolio</h2>
         <div class="image-placeholder"></div>
-        <p>Hello! I'm Rizan Subedi, a budding developer, designer, and tech enthusiast. Explore my work and journey!</p>
+        <p>Hello! I'm Rizan Subedi, a budding developer, designer, and tech enthusiast. Explore my work and journey!
+          <br>This is the webpage where all my details are mentioned. This website also consists of my other works
+          related to webdevelopment and other computer science projects and fictures. The web page
+          helps me to showcase my computer knowledge as well as my general basic information is also provide here.
+          
+          
+        </p>
     </div>
-      <p>
-        This is the webpage where all my details are mentioned. This website
-        also consists of my other works <br />related to webdevelopment and
-        other computer science projects and fictures. The web page <br />helps
-        me to showcase my computer knowledge as well as my general basic
-        information is also provide here.
-        <footer>
-          <p>© 2025 Rizan Subedi. All Rights Reserved.</p>
-      </footer>
-      </p>
-  </body>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Rizan Subedi. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
