@@ -1,75 +1,55 @@
-<html>
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Rizan Subedi</title>
-    <link rel="stylesheet" href="./style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rizan Subedi - Skills</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div id="loading-screen">
-        <div class="spinner"></div>
+  <!-- Loading Animation -->
+  <div class="loading-animation">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="sticky-nav">
+    <div class="nav-container">
+      <div class="logo">Rizan Subedi</div>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./aboutme.html">About</a></li>
+        <li><a href="./beafriend.html">Skills</a></li>
+        <li><a href="./signup.html">Projects</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <header>
-        <div class="navbar">
-            <div class="logo"><h1>Rizan Subedi</h1></div>
-            <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./aboutme.html">About Me</a></li>
-                <li><a href="./beafriend.html">Projects</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <div class="content">
-        <h2>My Projects</h2>
-        <div class="project">
-            <h3>Project 1</h3>
-            <p>Description of Project 1...</p>
-        </div>
-        <div class="project">
-            <h3>Project 2</h3>
-            <p>Description of Project 2...</p>
-        </div>
+  <!-- Skills Section -->
+  <section id="skills" class="section skills-section">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">
+        <img src="images/graphic-design-icon.png" alt="Graphic Design">
+        <p>Graphic Design</p>
+      </div>
+      <div class="skill">
+        <img src="images/video-editing-icon.png" alt="Video Editing">
+        <p>Video Editing</p>
+      </div>
+      <div class="skill">
+        <img src="images/web-dev-icon.png" alt="Web Development">
+        <p>Web Development</p>
+      </div>
     </div>
+  </section>
 
-    <footer>
-        <p>© 2025 Rizan Subedi. All Rights Reserved.</p>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Rizan Subedi. All rights reserved.</p>
+  </footer>
 
-    <script src="./script.js"></script>
-    <div style="background-color: honeydew">
-      <form>
-        <center>
-          <input type="text" placeholder="Enter your firstname" />
-        </center>
-        <br /><br />
-        <center>
-          <input type="text" placeholder="Enter your Middlename" />
-        </center>
-        <br /><br />
-        <center><input type="text" placeholder="Enter your Lastname" /></center>
-        <br /><br />
-        <center>
-          Gender:<select style="text-align-last: center">
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
-        </center>
-        <br /><br />
-        <center><input type="email" placeholder="Enter Your Email" /></center>
-        <br /><br />
-        <center>
-          <input type="number" placeholder="Enter your PhoneNumber" />
-        </center>
-        <br /><br />
-        <center>Date Of Birth:<input type="date" /></center>
-        <br /><br />
-        <center><button>Be Friend</button></center>
-      </form>
-    </div>
-  </body>
+  <script src="./script.js"></script>
+</body>
 </html>
