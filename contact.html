@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rizan Subedi - Contact</title>
-  <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     /* Loading Animation */
@@ -36,7 +35,7 @@
       100% { transform: rotate(360deg); }
     }
     
-    /* Navigation Bar */
+    /* Navigation */
     .sticky-nav {
       position: sticky;
       top: 0;
@@ -62,24 +61,24 @@
     }
     
     .nav-links {
+      display: flex;
       list-style: none;
       margin: 0;
       padding: 0;
-      display: flex;
     }
     
     .nav-links li {
       margin: 0 15px;
     }
     
-    .nav-links li a {
+    .nav-links a {
       color: #333;
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s;
     }
     
-    .nav-links li a:hover {
+    .nav-links a:hover {
       color: #007BFF;
     }
     
@@ -110,7 +109,6 @@
       padding: 15px;
       border: 1px solid #ddd;
       border-radius: 5px;
-      font-family: 'Poppins', sans-serif;
       font-size: 16px;
       transition: all 0.3s ease;
     }
@@ -133,44 +131,115 @@
       color: white;
       border: none;
       border-radius: 5px;
-      font-family: 'Poppins', sans-serif;
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
       transition: background-color 0.3s;
-      align-self: center;
-      margin-top: 20px;
       width: 200px;
+      margin: 20px auto 0;
     }
     
     #contact-form button:hover {
       background-color: #0056b3;
     }
     
+    /* Social Links */
     .social-links {
-      margin-top: 40px;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
+      margin: 40px 0;
       flex-wrap: wrap;
     }
     
-    .social-links a {
-      padding: 10px 20px;
-      background-color: #f0f0f0;
-      color: #007BFF;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: all 0.3s ease;
+    .social-link {
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #f0f0f0;
+      color: #333;
+      font-size: 18px;
+      transition: all 0.3s ease;
     }
     
-    .social-links a:hover {
-      background-color: #007BFF;
+    .social-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* Platform-specific colors */
+    .fa-github:hover { background-color: #333; color: white; }
+    .fa-twitter:hover { background-color: #1DA1F2; color: white; }
+    .fa-facebook-f:hover { background-color: #1877F2; color: white; }
+    .fa-instagram:hover { 
+      background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); 
+      color: white; 
+    }
+    .fa-whatsapp:hover { background-color: #25D366; color: white; }
+    .fa-envelope:hover { background-color: #EA4335; color: white; }
+    
+    /* Notification */
+    .floating-notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 320px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      transform: translateX(120%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      overflow: hidden;
+    }
+    
+    .floating-notification.show {
+      transform: translateX(0);
+    }
+    
+    .notification-header {
+      background: #4CAF50;
       color: white;
-      transform: translateY(-2px);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .notification-body {
+      padding: 15px 20px;
+    }
+    
+    .notification-actions {
+      display: flex;
+      padding: 10px;
+      gap: 10px;
+    }
+    
+    .notification-actions a {
+      flex: 1;
+      text-align: center;
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: white;
+    }
+    
+    .whatsapp-btn { background: #25D366; }
+    .email-btn { background: #EA4335; }
+    
+    .notification-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
     }
     
     /* Footer */
@@ -181,104 +250,12 @@
       padding: 20px 0;
     }
     
-    /* Status Message */
-    .status-message {
-      margin-top: 20px;
-      padding: 15px;
-      border-radius: 5px;
-      text-align: center;
-      display: none;
-    }
-    
-    .success {
-      background-color: #d4edda;
-      color: #155724;
-      display: block;
-    }
-    
-    .error {
-      background-color: #f8d7da;
-      color: #721c24;
-      display: block;
-    }
-    
-    /* Responsive Design */
+    /* Responsive */
     @media (max-width: 768px) {
-      .nav-container {
-        flex-direction: column;
-      }
-      
-      .nav-links {
-        margin-top: 15px;
-      }
-      
-      .section {
-        padding: 60px 20px;
-      }
-      
-      #contact-form {
-        width: 100%;
-      }
+      .nav-container { flex-direction: column; }
+      .nav-links { margin-top: 15px; }
+      .section { padding: 60px 20px; }
     }
-    /* Social Links Styles */
-.social-links {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #f0f0f0;
-  color: #333;
-  font-size: 18px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.social-link:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* Specific colors for each platform */
-.social-link:nth-child(1):hover { /* GitHub */
-  background-color: #333;
-  color: white;
-}
-
-.social-link:nth-child(2):hover { /* Twitter/X */
-  background-color: #1DA1F2;
-  color: white;
-}
-
-.social-link:nth-child(3):hover { /* Facebook */
-  background-color: #1877F2;
-  color: white;
-}
-
-.social-link:nth-child(4):hover { /* Instagram */
-  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-  color: white;
-}
-
-.social-link:nth-child(5):hover { /* WhatsApp */
-  background-color: #25D366;
-  color: white;
-}
-
-.social-link:nth-child(6):hover { /* Email */
-  background-color: #EA4335;
-  color: white;
-}
-
-/* Rest of your existing CSS remains the same */
   </style>
 </head>
 <body>
@@ -287,10 +264,10 @@
     <div class="loader"></div>
   </div>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation -->
   <nav class="sticky-nav">
     <div class="nav-container">
-      <div class="logo"><a href="./index.html" style="text-decoration: none; color: #007BFF;">Rizan Subedi</a></div>
+      <div class="logo"><a href="./index.html" style="text-decoration: none; color: inherit;">Rizan Subedi</a></div>
       <ul class="nav-links">
         <li><a href="./index.html">Home</a></li>
         <li><a href="./aboutme.html">About</a></li>
@@ -304,33 +281,32 @@
   <section id="contact" class="section">
     <h2>Contact Me</h2>
     <form id="contact-form">
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
-      <input type="email" id="email" name="email" placeholder="Your Email" required>
-      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
-      <div id="status-message" class="status-message"></div>
     </form>
+    
     <div class="social-links">
-     <div class="social-links">
-  <a href="https://github.com/fireboy-glitch" class="social-link" title="GitHub" target="_blank">
-    <i class="fab fa-github"></i>
-  </a>
-  <a href="https://twitter.com/yourusername" class="social-link" title="Twitter/X" target="_blank">
-    <i class="fab fa-twitter"></i>
-  </a>
-  <a href="https://www.facebook.com/profile.php?id=100089547340585" class="social-link" title="Facebook" target="_blank">
-    <i class="fab fa-facebook-f"></i>
-  </a>
-  <a href="https://instagram.com/rizan_subedi69" class="social-link" title="Instagram" target="_blank">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://wa.me/9779864535410" class="social-link" title="WhatsApp" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-  <a href="mailto:rizanmk27@gmail.com" class="social-link" title="Email" target="_blank">
-    <i class="fas fa-envelope"></i>
-  </a>
-</div>
+      <a href="https://github.com/fireboy-glitch" class="social-link" title="GitHub" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://twitter.com/@RizanSubedi
+" class="social-link" title="Twitter/X" target="_blank">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=100089547340585" class="social-link" title="Facebook" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://instagram.com/rizan_subedi69" class="social-link" title="Instagram" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://wa.me/9779864535410" class="social-link" title="WhatsApp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="mailto:rizanmk27@gmail.com" class="social-link" title="Email" target="_blank">
+        <i class="fas fa-envelope"></i>
+      </a>
     </div>
   </section>
 
@@ -339,7 +315,89 @@
    <marquee> <p>&copy; 2025 Rizan Subedi. All rights reserved.</p></marquee>
   </footer>
 
- 
-  
+  <script>
+    // Loading animation
+    window.addEventListener('load', () => {
+      const loader = document.querySelector('.loading-animation');
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.style.display = 'none', 500);
+      }
+    });
+
+    // Contact form
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+        const btnText = btn.textContent;
+        
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        
+        showNotification(
+          'Thank you for your message!',
+          'For immediate assistance, please WhatsApp me at +977 9864535410 or email rizanmk27@gmail.com'
+        );
+        
+        setTimeout(() => {
+          btn.textContent = btnText;
+          btn.disabled = false;
+          e.target.reset();
+        }, 2000);
+      });
+    }
+
+    // Notification
+    function showNotification(title, message) {
+      const notification = document.createElement('div');
+      notification.className = 'floating-notification';
+      notification.innerHTML = `
+        <div class="notification-header">
+          <i class="fas fa-comment-dots"></i>
+          <h4>${title}</h4>
+          <button class="notification-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="notification-body">
+          <p>${message}</p>
+        </div>
+        <div class="notification-actions">
+          <a href="https://wa.me/9779864535410" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="mailto:rizanmk27@gmail.com" class="email-btn" target="_blank">
+            <i class="fas fa-envelope"></i> Email
+          </a>
+        </div>
+      `;
+      
+      document.body.appendChild(notification);
+      setTimeout(() => notification.classList.add('show'), 10);
+      
+      // Close functionality
+      notification.querySelector('.notification-close').addEventListener('click', () => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+      });
+      
+      // Auto-close after 8 seconds
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+      }, 8000);
+    }
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
