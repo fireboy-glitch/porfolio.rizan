@@ -5,38 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rizan Subedi - Contact</title>
   <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <!-- Loading Animation -->
-  <div class="loading-animation">
-    <div class="loader"></div>
-  </div>
-
-  <!-- Navigation Bar -->
-  <nav class="sticky-nav">
-    <div class="nav-container">
-      <div class="logo">Rizan Subedi</div>
-      <ul class="nav-links">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./aboutme.html">About</a></li>
-        <li><a href="./beafriend.html">Skills</a></li>
-        <li><a href="./signup.html">Projects</a></li>
-        <li><a href="./contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section contact-section">
-    <h2>Contact</h2>
-    <form id="contact-form">
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
-      <input type="email" id="email" name="email" placeholder="Your Email" required>
-      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+  
+      <style>
+          body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              background-color: #f4f4f4;
+          }
+          .contact-form {
+              background: #fff;
+              padding: 20px;
+              border-radius: 8px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              width: 300px;
+          }
+          .contact-form h2 {
+              margin-bottom: 20px;
+              font-size: 24px;
+              text-align: center;
+              color: #333;
+          }
+          .contact-form input, .contact-form textarea {
+              width: 100%;
+              padding: 10px;
+              margin-bottom: 10px;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              font-size: 14px;
+          }
+          .contact-form textarea {
+              resize: vertical;
+              height: 100px;
+          }
+          .contact-form button {
+              width: 100%;
+              padding: 10px;
+              background-color: #188eee;
+              color: #fff;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+              font-size: 16px;
+          }
+          .contact-form button:hover {
+              background-color: #218838;
+          }
+          .status {
+              margin-top: 20px;
+              text-align: center;
+              font-size: 14px;
+              color: #333;
+          }
+      </style>
+  </head>
+  <body>
+      <div class="contact-form">
+          <h2>Contact Me</h2>
+          <form id="contactForm">
+              <input type="text" name="name" id="name" placeholder="Your Name" required>
+              <input type="email" name="email" id="email" placeholder="Your Email" required>
+              <textarea name="message" id="message" placeholder="Your Message" required></textarea>
+              <button type="submit">Send Message</button>
+          </form>
+          <div class="status" id="status"></div>
+      </div>
+  
+      <script>
+          // JavaScript to handle form submission
+          document.getElementById('contactForm').addEventListener('submit', function (e) {
+              e.preventDefault(); // Prevent the form from submitting normally
+  
+              // Get form data
+              const name = document.getElementById('name').value;
+              const email = document.getElementById('email').value;
+              const message = document.getElementById('message').value;
+  
+              // Validate form fields
+              if (!name || !email || !message) {
+                  document.getElementById('status').innerText = "Please fill out all fields.";
+                  return;
+              }
+  
+              // Send form data to the server using Fetch API
+              fetch('send_email.php', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ name, email, message }),
+              })
+              .then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                      document.getElementById('status').innerText = "Message sent successfully!";
+                      document.getElementById('contactForm').reset(); // Clear the form
+                  } else {
+                      document.getElementById('status').innerText = "Failed to send message.";
+                  }
+              })
+              .catch(error => {
+                  document.getElementById('status').innerText = "An error occurred. Please try again.";
+                  console.error('Error:', error);
+              });
+          });
+      </script>
     <div class="social-links">
-      <a href="https://www.instagram.com/rizan_subedi69?igsh=MWJoY3d5MXl5YW9yeg==" target="_blank">Instagram</a>
+      <a href="" target="_blank">Instagram</a>
       <a href="https://github.com/fireboy-glitch
       " target="_blank">GitHub</a>
       <a href="mailto:rizanmk27@gmail.com" target="_blank">Email</a>
