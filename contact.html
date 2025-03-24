@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rizan Subedi - Contact</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     /* Loading Animation */
     .loading-animation {
@@ -219,6 +220,65 @@
         width: 100%;
       }
     }
+    /* Social Links Styles */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Specific colors for each platform */
+.social-link:nth-child(1):hover { /* GitHub */
+  background-color: #333;
+  color: white;
+}
+
+.social-link:nth-child(2):hover { /* Twitter/X */
+  background-color: #1DA1F2;
+  color: white;
+}
+
+.social-link:nth-child(3):hover { /* Facebook */
+  background-color: #1877F2;
+  color: white;
+}
+
+.social-link:nth-child(4):hover { /* Instagram */
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+  color: white;
+}
+
+.social-link:nth-child(5):hover { /* WhatsApp */
+  background-color: #25D366;
+  color: white;
+}
+
+.social-link:nth-child(6):hover { /* Email */
+  background-color: #EA4335;
+  color: white;
+}
+
+/* Rest of your existing CSS remains the same */
   </style>
 </head>
 <body>
@@ -251,18 +311,26 @@
       <div id="status-message" class="status-message"></div>
     </form>
     <div class="social-links">
-      <a href="www.instagram.com/rizan_subedi69/" target="_blank">
-    
-        Instagram
-      </a>
-      <a href="https://github.com/fireboy-glitch" target="_blank">
-      
-        GitHub
-      </a>
-      <a href="mailto:rizanmk27@gmail.com" target="_blank">
-      
-        Email
-      </a>
+     <div class="social-links">
+  <a href="https://github.com/fireboy-glitch" class="social-link" title="GitHub" target="_blank">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://twitter.com/yourusername" class="social-link" title="Twitter/X" target="_blank">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a href="https://www.facebook.com/profile.php?id=100089547340585" class="social-link" title="Facebook" target="_blank">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://instagram.com/rizan_subedi69" class="social-link" title="Instagram" target="_blank">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://wa.me/9779864535410" class="social-link" title="WhatsApp" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="mailto:rizanmk27@gmail.com" class="social-link" title="Email" target="_blank">
+    <i class="fas fa-envelope"></i>
+  </a>
+</div>
     </div>
   </section>
 
@@ -271,57 +339,7 @@
    <marquee> <p>&copy; 2025 Rizan Subedi. All rights reserved.</p></marquee>
   </footer>
 
-  <script>
-    // Loading animation
-    window.addEventListener('load', function() {
-      const loadingAnimation = document.querySelector('.loading-animation');
-      loadingAnimation.style.opacity = '0';
-      setTimeout(() => {
-        loadingAnimation.style.display = 'none';
-      }, 500);
-    });
-
-    // Contact form handling - modified to show only notification
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const form = this;
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const statusMessage = document.getElementById('status-message');
-      
-      // Change button text
-      const originalBtnText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
-      
-      // Show thank you message without actually sending
-      statusMessage.textContent = 'Thank you for trying to message. Can\'t complete this action now. Please try emailing me directly at rizanmk27@gmail.com';
-      statusMessage.className = 'status-message notification';
-      statusMessage.style.display = 'block';
-      
-      // Reset button
-      submitBtn.textContent = originalBtnText;
-      submitBtn.disabled = false;
-      
-      // Hide status message after 5 seconds
-      setTimeout(() => {
-        statusMessage.style.opacity = '0';
-        setTimeout(() => {
-          statusMessage.style.display = 'none';
-          statusMessage.style.opacity = '1';
-        }, 500);
-      }, 5000);
-    });
-
-    // Smooth scrolling for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
+ 
+  
 </body>
 </html>
