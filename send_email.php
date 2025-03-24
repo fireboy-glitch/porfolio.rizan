@@ -4,23 +4,36 @@ header('Content-Type: application/json');
 // Your email address
 $to_email = "rizanmk27@gmail.com";
 
-// Get JSON data from the request
-$data = json_decode(file_get_contents('php://input'), true);
+// Get form data
+$name = htmlspecialchars($_POST['name']);
+$email = htmlspecialchars($_POST['email']);
+$message = htmlspecialchars($_POST['message']);
 
-// Extract form data
-$name = htmlspecialchars($data['name']);
-$email = htmlspecialchars($data['email']);
-$message = htmlspecialchars($data['message']);
+// Validate inputs
+if (empty($name) || empty($email) || empty($message)) {
+    http_response_code(400);
+    echo json_encode(['error' => 'All fields are required']);
+    exit;
+}
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Invalid email format']);
+    exit;
+}
 
 // Prepare email content
-$subject = "New Message from rizansubedi.com.np";
+$subject = "New Message from rizansubedi.com.np Contact Form";
 $body = "Name: $name\nEmail: $email\nMessage: $message";
-$headers = "From: $email";
+$headers = "From: $email\r\n";
+$headers .= "Reply-To: $email\r\n";
 
 // Send email
 if (mail($to_email, $subject, $body, $headers)) {
-    echo json_encode(['success' => true]);
+    http_response_code(200);
+    echo json_encode(['success' => 'Message sent successfully']);
 } else {
-    echo json_encode(['success' => false]);
+    http_response_code(500);
+    echo json_encode(['error' => 'Failed to send message']);
 }
-?> 
+?>
