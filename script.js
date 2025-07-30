@@ -9,18 +9,16 @@ window.addEventListener('load', () => {
   }
 });
 
-// Insert hamburger menu button into nav-container
 const navContainer = document.querySelector('.nav-container');
-if (navContainer) {
+if (navContainer && !navContainer.querySelector('.hamburger')) {
   const hamburger = document.createElement('button');
   hamburger.classList.add('hamburger');
   hamburger.setAttribute('aria-label', 'Toggle navigation menu');
   hamburger.innerHTML = '<span></span><span></span><span></span>';
-  // Insert hamburger before nav-links
+  
   const navLinks = navContainer.querySelector('.nav-links');
   navContainer.insertBefore(hamburger, navLinks);
 
-  // Hamburger toggle event
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     hamburger.classList.toggle('active');
